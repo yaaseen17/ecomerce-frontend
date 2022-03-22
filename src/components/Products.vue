@@ -9,9 +9,6 @@
 
         <div class="price">R{{ product.price }}</div>
       </div>
-
-      <button @click="addToCart(product, i)" class="buy-btn">Buy Now</button>
-
       <input
         type="number"
         class="form-control"
@@ -19,6 +16,8 @@
         min="1"
         :id="`qty${i}`"
       />
+      <button @click="addToCart(product, i)" class="buy-btn">Buy Now</button>
+
       <router-link :to="{ path: `/singleproduct` }"
         ><button>Read more</button></router-link
       >
@@ -95,7 +94,9 @@ input {
   color: rgb(0, 0, 0);
   width: 20%;
   border: transparent;
+  margin: auto;
 }
+
 a {
   text-decoration: none;
 }

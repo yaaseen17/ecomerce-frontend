@@ -225,6 +225,12 @@ export default {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
+.form-bg{
+  padding-top: 100px;
+}
+.login-container{
+  height: 100vh;
+}
 .form-horizontal .btn:hover,
 .form-horizontal .btn:focus {
   color: #fff;

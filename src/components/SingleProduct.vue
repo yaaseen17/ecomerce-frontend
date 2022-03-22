@@ -1,12 +1,12 @@
 <template>
-  <div class="card" v-if="newProduct">
+  <div class="card" v-for="product in content" :key="product._id">
     <div class="product-image">
-      <img :src="newProduct.img" />
+      <img :src="product.img" />
     </div>
     <div class="product-info">
-      <h2>{{ newProduct.name }}</h2>
+      <h2>{{ product.name }}</h2>
 
-      <div class="price">R{{ newProduct.price }}</div>
+      <div class="price">R{{ product.price }}</div>
     </div>
   </div>
 </template>
@@ -17,19 +17,23 @@ export default {
   name: "singleproduct",
   data() {
     return {
-      product: this.$route.params.id,
-      newProduct: {},
+      content: "",
     };
   },
   mounted() {
     this.loading = true;
     ProductService.getsingleProduct(product).then(
-      (res) => {
-        this.newProduct = res.data;
+      (response) => {
+        this.content = response.data;
         this.loading = false;
       },
-      (err) => {
-        console.error(err);
+      (error) => {
+        this.content =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
       }
     );
   },

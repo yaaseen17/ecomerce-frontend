@@ -170,6 +170,10 @@ export default {
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+.form-bg {
+  padding-top: 100px;
+  height: 100vh;
+}
 .form-container .form-icon {
   color: #fff;
   font-size: 13px;
