@@ -26,17 +26,11 @@
         <h2>{{ product.name }}</h2>
 
         <div class="price">R{{ product.price }}</div>
-        <input
-          type="number"
-          class=""
-          value="1"
-          min="1"
-          :id="`qty${i}`"
-        />
+        <input type="number" class="" value="1" min="1" :id="`qty${i}`" />
         <button @click="addToCart(product, i)" class="buy-btn">Buy Now</button>
       </div>
 
-      <router-link :to="{ path: `/singleproduct` }"
+      <router-link :to="{ name: 'singleproduct', params: { id: product._id } }"
         ><button>Read more</button></router-link
       >
     </div>
@@ -55,6 +49,7 @@ export default {
       search: "",
     };
   },
+  props: ["product"],
   methods: {
     addToCart(product, i) {
       let qty = document.querySelector(`#qty${i}`).value;
@@ -125,8 +120,6 @@ input {
   color: rgb(0, 0, 0);
   width: 20%;
   border: transparent;
-  margin: auto;
-  padding-top: 20px;
 }
 .form-control {
   width: 100px;
@@ -148,9 +141,10 @@ img {
 .card {
   position: relative;
   padding: 1rem;
-  width: 350px;
-  height: 450px;
-  box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+  margin: auto;
+  width: 300px;
+  height: 400px;
+  box-shadow: -1px 15px 30px -12px rgb(146, 0, 0);
   border-radius: 0.9rem;
   color: white;
   cursor: pointer;
@@ -160,7 +154,7 @@ img {
 .product-image {
   height: 200px;
   width: 100%;
-  margin: auto 50px;
+  margin: auto 35px;
   filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
 }
 .product-info {

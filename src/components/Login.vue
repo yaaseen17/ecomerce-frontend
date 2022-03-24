@@ -273,4 +273,12 @@ export default {
     margin: 0;
   }
 }
+@media screen and (max-width: 576px) {
+  .login-container {
+    height: fit-content;
+  }
+  .form-bg {
+    padding-top: 0px;
+  }
+}
 </style>

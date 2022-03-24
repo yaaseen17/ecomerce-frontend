@@ -1,13 +1,13 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Home from "./components/Home.vue";
+import Home from "./views/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
-import Products from "./components/Products.vue";
-import SingleProduct from "./components/SingleProduct";
-import Contact from "./components/Contact.vue";
+import Products from "./views/Products.vue";
+import SingleProduct from "./views/SingleProduct";
+import Contact from "./views/Contact.vue";
 // lazy-loaded
 const Profile = () => import("./components/Profile.vue");
-const BoardAdmin = () => import("./components/BoardAdmin.vue");
+const BoardAdmin = () => import("./views/BoardAdmin.vue");
 const Cart = () => import("./components/Cart.vue");
 
 const routes = [
@@ -29,6 +29,7 @@ const routes = [
     path: "/singleproduct",
     name: "singleproduct",
     component: SingleProduct,
+    props: true,
   },
   {
     path: "/login",

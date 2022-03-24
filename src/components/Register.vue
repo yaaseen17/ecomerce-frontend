@@ -300,4 +300,9 @@ export default {
     margin: 0;
   }
 }
+@media screen and (max-width: 576px) {
+  .form-bg {
+    height: fit-content;
+  }
+}
 </style>

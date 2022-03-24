@@ -19,7 +19,7 @@ class AuthService {
     localStorage.removeItem("user");
   }
   delete(user) {
-    return axios.delete(API_URL + user, { headers: authHeader() });
+    return axios.delete(API_URL + "users/" + user, { headers: authHeader() });
   }
   getUserContent() {
     return axios.get(API_URL + "users", { headers: authHeader() });

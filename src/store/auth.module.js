@@ -19,18 +19,18 @@ export const auth = {
         }
       );
     },
-    // delete({ commit }, user) {
-    //   return AuthService.delete(user).then(
-    //     (user) => {
-    //       commit("deletedUser", user);
-    //       return Promise.resolve(user);
-    //     },
-    //     (error) => {
-    //       commit("NotDeleted");
-    //       return Promise.reject(error);
-    //     }
-    //   );
-    // },
+    delete({ commit }, user) {
+      return AuthService.delete(user).then(
+        (user) => {
+          commit("deletedUser", user);
+          return Promise.resolve(user);
+        },
+        (error) => {
+          commit("NotDeleted");
+          return Promise.reject(error);
+        }
+      );
+    },
     logout({ commit }) {
       AuthService.logout();
       commit("logout");
@@ -67,11 +67,11 @@ export const auth = {
     registerFailure(state) {
       state.status.loggedIn = false;
     },
-    // deletedUser(state, user) {
-    //   state.user = user;
-    // },
-    // NotDeleted(state) {
-    //   state.user = null;
-    // },
+    deletedUser(state, user) {
+      state.user = user;
+    },
+    NotDeleted(state) {
+      state.user = null;
+    },
   },
 };

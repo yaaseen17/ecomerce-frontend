@@ -1,23 +1,25 @@
 <template>
   <div class="boarda">
-    <h1>Products</h1>
+    <h1 class="admin-head">Products</h1>
     <table class="rwd-table">
+      <button id="submit-btn" class="btn btn-danger w-30 ms-3" @click="toggleModal">
+            ADD A PRODUCTS
+          </button>
       <tr>
-        <th>name</th>
+        <th>Name</th>
         <th>Image</th>
         <th>Price</th>
-        <th>edit/delete</th>
-        <th>New product</th>
+        <th>Edit/Delete</th>
       </tr>
       <tr v-for="(product, i) in content" :key="product._id">
-        <td data-th="name">{{ product.name }}</td>
-        <td data-th="description"><img :src="product.img" /></td>
+        <td data-th="Name">{{ product.name }}</td>
+        <td data-th="Image"><img :src="product.img" /></td>
         <td data-th="Price">R{{ product.price }}</td>
-        <td data-th="edit/delete">
+        <td data-th="Edit/Delete">
           <button
             id="edit"
             type="button"
-            class="btn btn-warning w-50"
+            class="btn btn-secondary w-30"
             @click="changeUpdater(i)"
           >
             Edit
@@ -26,17 +28,13 @@
           <button
             id="delete"
             type="button"
-            class="btn btn-danger w-70 ms-3"
+            class="btn btn-danger w-30 ms-3"
             @click="deleteProduct(product._id)"
           >
             Delete
           </button>
         </td>
-        <td data-th="New product">
-          <button id="submit-btn" class="addp" @click="toggleModal">
-            ADD A PRODUCTS
-          </button>
-        </td>
+        
       </tr>
     </table>
     <div>
@@ -47,18 +45,18 @@
         v-if="showModal2"
       />
     </div>
-    <h1>Users</h1>
+    <h1 class="admin-head">Users</h1>
     <table class="rwd-table">
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>edit/delete</th>
+        <th>Delete</th>
       </tr>
       <tr v-for="user in users" :key="user._id">
-        <td data-th="name">{{ user.username }}</td>
-        <td data-th="Email">R{{ user.email }}</td>
-        <td data-th="edit/delete">
-          <button @click="deleteUser(user._id)">delete</button>
+        <td data-th="Name">{{ user.username }}</td>
+        <td data-th="Email">{{ user.email }}</td>
+        <td data-th="Delete">
+          <button class="btn btn-danger w-30 ms-3" @click="deleteUser(user._id)">delete</button>
         </td>
       </tr>
     </table>
@@ -115,9 +113,9 @@ export default {
         }
       );
     },
-    deleteUser(users) {
+    deleteUser(user) {
       this.loading = true;
-      this.$store.dispatch("user/delete", users).then(
+      this.$store.dispatch("auth/delete", user).then(
         () => {
           location.reload();
         },
@@ -166,6 +164,10 @@ export default {
 </script>
 
 <style scoped>
+.admin-head {
+  color: #ad0303;
+  text-align: center;
+}
 .boarda {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -176,7 +178,7 @@ img {
 }
 @import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
 .rwd-table {
-  margin: 1em 0;
+  margin: 1em auto;
   min-width: 300px;
 }
 .rwd-table tr {
@@ -235,20 +237,14 @@ body {
   background: #eee;
 }
 
-h1 {
-  font-weight: normal;
-  letter-spacing: -1px;
-  color: #34495e;
-}
-
 .rwd-table {
-  background: #34495e;
+  background: #000000;
   color: #fff;
   border-radius: 0.4em;
   overflow: hidden;
 }
 .rwd-table tr {
-  border-color: #46637f;
+  border-color: #292929;
 }
 .rwd-table th,
 .rwd-table td {
@@ -262,6 +258,6 @@ h1 {
 }
 .rwd-table th,
 .rwd-table td:before {
-  color: #dd5;
+  color: #ffffff;
 }
 </style>

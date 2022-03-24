@@ -28,9 +28,8 @@
       <div class="button-follow"></div>
       <div class="auth">
         <strong>Authorities:</strong>
-        
-          <p v-for="role in currentUser.roles" :key="role">{{ role }}</p>
-       
+
+        <p v-for="role in currentUser.roles" :key="role">{{ role }}</p>
       </div>
     </div>
   </div>

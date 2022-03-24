@@ -91,43 +91,63 @@
     <div class="mobile-nav">
       <nav class="m-nav" :class="{ active: isActive }">
         <a class="mobile"
-          ><router-link to="/home" @click="toggleNav">
+          ><router-link
+            to="/home"
+            @click="toggleNav"
+            style="color: white; text-decoration: none"
+          >
             Home
           </router-link></a
         >
         <a class="mobile" v-if="showAdminBoard"
-          ><router-link to="/admin" @click="toggleNav"
+          ><router-link
+            to="/admin"
+            @click="toggleNav"
+            style="color: white; text-decoration: none"
             >Admin Board</router-link
           ></a
         >
         <a class="mobile"
-          ><router-link to="/product" @click="toggleNav"
+          ><router-link
+            to="/product"
+            @click="toggleNav"
+            style="color: white; text-decoration: none"
             >Products</router-link
           ></a
         >
         <a class="mobile"
-          ><router-link to="/contact" @click="toggleNav"
-            >contact</router-link
+          ><router-link
+            to="/contact"
+            @click="toggleNav"
+            style="color: white; text-decoration: none"
+            >Contact</router-link
           ></a
         >
         <a class="mobile" v-if="currentUser"
-          ><router-link to="/cart" @click="toggleNav">cart</router-link></a
+          ><router-link
+            to="/cart"
+            @click="toggleNav"
+            style="color: white; text-decoration: none"
+            >Cart</router-link
+          ></a
         >
         <div v-if="!currentUser" class="mobile">
-            <router-link to="/register" @click="toggleNav">
-              <a href="">Sign Up</a>
-            </router-link>
-            <router-link to="/login" @click="toggleNav">
-              <a href="">Login</a>
-            </router-link>
+          <router-link to="/register" @click="toggleNav">
+            <a href="" style="color: white; text-decoration: none">Sign Up</a>
+          </router-link>
+          <router-link to="/login" @click="toggleNav">
+            <a href="" style="color: white; text-decoration: none">Login</a>
+          </router-link>
         </div>
         <div v-if="currentUser" class="mobile">
-            <router-link to="/profile" class="nav-link" @click="toggleNav">
-              <a href="">{{ currentUser.username }} </a>
-            </router-link>
-            <a class="nav-link" @click.prevent="logOut">
-              <a href="">LogOut</a>
+          <router-link to="/profile" class="nav-link" @click="toggleNav">
+            <a href="" style="color: white; text-decoration: none"
+              >{{ currentUser.username }}
             </a>
+          </router-link>
+          <a class="nav-link" @click.prevent="logOut">
+            <a href="" style="color: white; text-decoration: none">LogOut</a>
+          </a>
         </div>
       </nav>
     </div>
@@ -181,7 +201,7 @@ export default {
 }
 
 .view {
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(34, 34, 34);
   height: 100%;
 }
 img {
@@ -216,6 +236,9 @@ img {
 .nav-container svg {
   color: #fff;
   margin-left: 1rem;
+}
+.mobile {
+  text-decoration: none;
 }
 
 .menu {

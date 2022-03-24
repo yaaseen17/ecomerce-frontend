@@ -35,7 +35,7 @@ class ProductService {
     );
   }
   getsingleProduct(product) {
-    return axios.get(API_URL + product._id);
+    return axios.get(API_URL + product._id)
   }
 }
 

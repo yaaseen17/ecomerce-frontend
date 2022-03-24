@@ -1,6 +1,6 @@
 <template>
   <div class="conatcts">
-    <h1 class="section-header">Contact Me</h1>
+    <h1 class="section-header">Contact Us</h1>
     <div class="c-d">
       <div class="bg10">
         <form @submit.prevent="handleSubmit">
@@ -58,7 +58,7 @@
           <li class="list-item">
             <span class="contact-text phone"
               ><a href="tel:066-267-7072" title="Give me a call"
-                >066 267 7072</a
+                >021 761 5503</a
               ></span
             >
           </li>
@@ -66,7 +66,7 @@
           <li class="list-item">
             <span class="contact-text gmail"
               ><a href="mailto:#yaaseendav@gmail.com" title="Send me an email"
-                >yaaseendav@gmail.com</a
+                >unwantedZa@gmail.com</a
               ></span
             >
           </li>
@@ -114,6 +114,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin: auto;
 }
 /* Location, Phone, Email Section */
 .contact-list {
@@ -128,7 +129,6 @@ export default {
 }
 .conatcts {
   height: 100vh;
-  padding-top: 80px;
 }
 .contact-text {
   font: 300 18px "Lato", sans-serif;
@@ -137,18 +137,23 @@ export default {
 }
 .section-header {
   text-align: center;
+  padding-top: 80px;
   padding-bottom: 20px;
+  color: black;
 }
 .place {
-  margin-left: 50px;
+  margin: auto;
+  font-size: 15px;
 }
 
 .phone {
-  margin-left: 50px;
+  margin: auto;
+  font-size: 15px;
 }
 
 .gmail {
-  margin-left: 50px;
+  margin: auto;
+  font-size: 15px;
 }
 
 .contact-text a {
@@ -283,11 +288,19 @@ input:-ms-input-placeholder {
   z-index: 2;
 }
 @media screen and (max-width: 670px) {
+  .c-d {
+    margin: auto;
+  }
   .cont {
     width: 68%;
   }
   #submit_button {
     width: 68%;
+  }
+}
+@media screen and (max-width: 560px) {
+  .conatcts {
+    height: fit-content;
   }
 }
 </style>
