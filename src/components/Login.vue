@@ -55,6 +55,7 @@
                   />
                   <ErrorMessage name="password" class="error-feedback" />
                 </div>
+
                 <button class="btn signin" :disabled="loading">
                   <span
                     v-show="loading"
@@ -62,6 +63,11 @@
                   ></span>
                   <span>Login</span>
                 </button>
+                <div class="ij">
+                  <div v-if="message" class="alert alert-danger" role="alert">
+                    {{ message }}
+                  </div>
+                </div>
               </Form>
             </div>
           </div>
@@ -124,16 +130,20 @@ export default {
 </script>
 <style scoped>
 .form-container {
-  background: linear-gradient(#e9374c, #d31128);
-  font-family: "Roboto", sans-serif;
+  background: linear-gradient(#000000, #1a1a1a);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 0;
   padding: 0 15px;
-  border: 1px solid #dc2036;
+  border: 1px solid #1a1a1a;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+.ij {
+  color: #000000;
+}
 .form-container .form-icon {
-  color: #fff;
+  color: #ad0303;
   font-size: 13px;
   text-align: center;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -148,7 +158,7 @@ export default {
   display: block;
 }
 .form-container .form-icon .signup a {
-  color: #fff;
+  color: #ffffff;
   text-transform: capitalize;
   transition: all 0.3s ease;
 }
@@ -156,7 +166,7 @@ export default {
   text-decoration: underline;
 }
 .form-container .form-horizontal {
-  background: rgba(255, 255, 255, 0.99);
+  background: rgb(39, 39, 39);
   width: 50%;
   padding: 60px 30px;
   margin: -20px 0;
@@ -165,7 +175,7 @@ export default {
   display: inline-block;
 }
 .form-container .title {
-  color: #454545;
+  color: #f8f8f8;
   font-size: 23px;
   font-weight: 900;
   text-align: center;
@@ -214,7 +224,7 @@ export default {
 }
 .form-horizontal .btn {
   color: rgba(255, 255, 255, 0.8);
-  background: #e9374c;
+  background: #ad0303;
   font-size: 15px;
   font-weight: 500;
   text-transform: uppercase;
@@ -225,16 +235,16 @@ export default {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
-.form-bg{
+.form-bg {
   padding-top: 100px;
 }
-.login-container{
+.login-container {
   height: 100vh;
 }
 .form-horizontal .btn:hover,
 .form-horizontal .btn:focus {
   color: #fff;
-  background-color: #d31128;
+  background-color: #ad0303;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .form-horizontal .forgot-pass {

@@ -26,10 +26,12 @@
         </p>
       </div>
       <div class="button-follow"></div>
-      <strong>Authorities:</strong>
-      <ul>
-        <li v-for="role in currentUser.roles" :key="role">{{ role }}</li>
-      </ul>
+      <div class="auth">
+        <strong>Authorities:</strong>
+        
+          <p v-for="role in currentUser.roles" :key="role">{{ role }}</p>
+       
+      </div>
     </div>
   </div>
 </template>
@@ -59,8 +61,8 @@ export default {
   border-radius: 16px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #dc2036;
-  background: linear-gradient(#e9374c, #d31128);
+  border: 2px solid #ad0303;
+  background: linear-gradient(#000000, #1a1a1a);
   color: rgb(255, 255, 255);
 }
 .img-name {
@@ -68,7 +70,8 @@ export default {
   height: 210px;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 5px solid rgb(182, 182, 233);
+  border-bottom: 5px solid #ad0303;
+  padding-top: 10px;
 }
 .img-name img {
   display: block;
@@ -77,22 +80,27 @@ export default {
   margin-left: auto;
   margin-right: auto;
   border-radius: 70px;
-  border: 5px solid rgb(202, 202, 233);
+  border: 5px solid #ad0303;
   background-color: rgb(234, 241, 247);
+}
+.auth {
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
 }
 .img-name h2 {
   text-align: center;
-  padding: 16px;
 }
 .followers {
   height: 140px;
   padding-top: 50px;
+  text-align: center;
 }
 .followers h3 {
   text-align: center;
 }
 .button-follow {
-  height: 115px;
+  height: 40px;
 }
 .button-follow button {
   display: block;

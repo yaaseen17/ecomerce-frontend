@@ -1,5 +1,23 @@
 <template>
   <div class="containerr">
+    <div class="row">
+      <div class="col-4">
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="text"
+            v-model="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
+      </div>
+    </div>
+    <span
+      v-show="loading"
+      class="spinner-border spinner-border-sm"
+      style="width: 100px; height: 100px; color: white"
+    ></span>
     <div class="card" v-for="product in content" :key="product.id">
       <div class="product-image">
         <img :src="product.img" />
@@ -8,15 +26,15 @@
         <h2>{{ product.name }}</h2>
 
         <div class="price">R{{ product.price }}</div>
+        <input
+          type="number"
+          class=""
+          value="1"
+          min="1"
+          :id="`qty${i}`"
+        />
+        <button @click="addToCart(product, i)" class="buy-btn">Buy Now</button>
       </div>
-      <input
-        type="number"
-        class="form-control"
-        value="1"
-        min="1"
-        :id="`qty${i}`"
-      />
-      <button @click="addToCart(product, i)" class="buy-btn">Buy Now</button>
 
       <router-link :to="{ path: `/singleproduct` }"
         ><button>Read more</button></router-link
@@ -33,6 +51,8 @@ export default {
   data() {
     return {
       content: "",
+      loading: false,
+      search: "",
     };
   },
   methods: {
@@ -54,6 +74,17 @@ export default {
             error.toString();
         }
       );
+    },
+  },
+  computed: {
+    filterProducts: function () {
+      let filtered = this.product;
+      if (this.search) {
+        filtered = filtered.filter((product) => {
+          return product.name.match(this.search);
+        });
+      }
+      return filtered;
     },
   },
   mounted() {
@@ -95,8 +126,12 @@ input {
   width: 20%;
   border: transparent;
   margin: auto;
+  padding-top: 20px;
 }
-
+.form-control {
+  width: 100px;
+  margin-top: 100px;
+}
 a {
   text-decoration: none;
 }

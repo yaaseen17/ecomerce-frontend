@@ -1,6 +1,6 @@
 import axios from "axios";
 import authHeader from "./auth-header";
-const API_URL = "http://localhost:5000/auth/";
+const API_URL = "https://unwanted-kickza.herokuapp.com/auth/";
 class AuthService {
   login(user) {
     return axios

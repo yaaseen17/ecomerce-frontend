@@ -1,6 +1,6 @@
 <template>
   <h1>cart</h1>
-  <div class="products section">
+  <div class="products-section">
     <span
       v-show="loading"
       class="spinner-border spinner-border-sm"
@@ -130,7 +130,7 @@ img {
   width: 200px;
   height: 200px;
 }
-.section {
+.products-section {
   min-height: 100vh;
 }
 

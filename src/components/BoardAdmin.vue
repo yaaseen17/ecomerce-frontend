@@ -1,7 +1,7 @@
 <template>
   <div class="boarda">
     <h1>Products</h1>
-    <table class="rwd-table" v-for="(product, i) in content" :key="product._id">
+    <table class="rwd-table">
       <tr>
         <th>name</th>
         <th>Image</th>
@@ -9,7 +9,7 @@
         <th>edit/delete</th>
         <th>New product</th>
       </tr>
-      <tr>
+      <tr v-for="(product, i) in content" :key="product._id">
         <td data-th="name">{{ product.name }}</td>
         <td data-th="description"><img :src="product.img" /></td>
         <td data-th="Price">R{{ product.price }}</td>
@@ -48,13 +48,13 @@
       />
     </div>
     <h1>Users</h1>
-    <table class="rwd-table" v-for="user in users" :key="user._id">
+    <table class="rwd-table">
       <tr>
         <th>Name</th>
         <th>Email</th>
         <th>edit/delete</th>
       </tr>
-      <tr>
+      <tr v-for="user in users" :key="user._id">
         <td data-th="name">{{ user.username }}</td>
         <td data-th="Email">R{{ user.email }}</td>
         <td data-th="edit/delete">

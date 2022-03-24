@@ -1,39 +1,75 @@
 <template>
   <header>
     <div class="nav-container">
-        <img src="./assets/bg.jpg" alt="">
-  
+      <img src="./assets/bg.jpg" alt="" />
+
       <nav class="nav" :class="{ active: isActive }">
-        <router-link to="/home" @click="toggleNav">
-          <font-awesome-icon icon="home" style="color: white" />
+        <router-link
+          to="/home"
+          @click="toggleNav"
+          class="som"
+          style="color: white; text-decoration: none; padding-top: 10px"
+        >
           Home
         </router-link>
-        <div v-if="showAdminBoard">
-          <router-link to="/admin" @click="toggleNav">Admin Board</router-link>
+        <div v-if="showAdminBoard" style="padding-top: 10px">
+          <router-link
+            to="/admin"
+            @click="toggleNav"
+            style="color: white; text-decoration: none"
+            >Admin Board</router-link
+          >
         </div>
-        <router-link to="/product" @click="toggleNav">Products</router-link>
+        <router-link
+          to="/product"
+          @click="toggleNav"
+          style="color: white; text-decoration: none; padding-top: 10px"
+          >Products</router-link
+        >
 
-        <router-link to="/contact" @click="toggleNav">contact</router-link>
-        <div v-if="currentUser">
-          <router-link to="/cart" @click="toggleNav">cart</router-link>
+        <router-link
+          to="/contact"
+          @click="toggleNav"
+          style="color: white; text-decoration: none; padding-top: 10px"
+          >Contact</router-link
+        >
+        <div v-if="currentUser" style="padding-top: 10px">
+          <router-link
+            to="/cart"
+            @click="toggleNav"
+            style="color: white; text-decoration: none; padding-top: 10px"
+            >Cart</router-link
+          >
         </div>
         <div v-if="!currentUser" class="uni">
           <li class="nav-item">
             <router-link to="/register" @click="toggleNav">
               <font-awesome-icon icon="user-plus" style="color: white" />
-              <a href="">Sign Up</a>
+              <a
+                href=""
+                style="color: white; text-decoration: none; padding-top: 10px"
+                >Sign Up</a
+              >
             </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/login" @click="toggleNav">
               <font-awesome-icon icon="sign-in-alt" style="color: white" />
-              <a href="">Login</a>
+              <a
+                href=""
+                style="color: white; text-decoration: none; padding-top: 10px"
+                >Login</a
+              >
             </router-link>
           </li>
         </div>
         <div v-if="currentUser" class="uni">
           <li class="nav-item">
-            <router-link to="/profile" @click="toggleNav">
+            <router-link
+              to="/profile"
+              @click="toggleNav"
+              style="color: white; text-decoration: none; padding-top: 10px"
+            >
               <font-awesome-icon icon="user" />
               {{ currentUser.username }}
             </router-link>
@@ -41,7 +77,7 @@
           <li class="nav-item">
             <a @click.prevent="logOut">
               <font-awesome-icon icon="sign-out-alt" />
-              <a href="">LogOut</a>
+              <a href="" style="color: white; text-decoration: none">LogOut</a>
             </a>
           </li>
         </div>
@@ -56,7 +92,6 @@
       <nav class="m-nav" :class="{ active: isActive }">
         <a class="mobile"
           ><router-link to="/home" @click="toggleNav">
-            <font-awesome-icon icon="home" style="color: white" />
             Home
           </router-link></a
         >
@@ -79,32 +114,20 @@
           ><router-link to="/cart" @click="toggleNav">cart</router-link></a
         >
         <div v-if="!currentUser" class="mobile">
-          <li class="nav-item">
             <router-link to="/register" @click="toggleNav">
-              <font-awesome-icon icon="user-plus" style="color: white" />
               <a href="">Sign Up</a>
             </router-link>
-          </li>
-          <li class="nav-item">
             <router-link to="/login" @click="toggleNav">
-              <font-awesome-icon icon="sign-in-alt" style="color: white" />
               <a href="">Login</a>
             </router-link>
-          </li>
         </div>
         <div v-if="currentUser" class="mobile">
-          <li class="nav-item">
             <router-link to="/profile" class="nav-link" @click="toggleNav">
-              <font-awesome-icon icon="user" />
               <a href="">{{ currentUser.username }} </a>
             </router-link>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" @click.prevent="logOut">
-              <font-awesome-icon icon="sign-out-alt" />
               <a href="">LogOut</a>
             </a>
-          </li>
         </div>
       </nav>
     </div>
@@ -112,6 +135,9 @@
   <div class="view">
     <router-view class="disp" />
   </div>
+  <footer>
+    <div class="hos">hos</div>
+  </footer>
 </template>
 <script>
 export default {
@@ -166,7 +192,11 @@ img {
 * {
   box-sizing: border-box;
 }
-
+.hos {
+  width: 100%;
+  height: 30px;
+  background-color: rgb(0, 0, 0);
+}
 .nav-container {
   padding: 10px;
   display: flex;
@@ -174,7 +204,7 @@ img {
   justify-content: flex-start;
   margin: 0;
   width: 100%;
-  background: linear-gradient(to right, #000000, #292929);
+  background: #000000;
   position: fixed;
   z-index: 5;
   transition: 0.3s ease-in-out;
@@ -247,17 +277,17 @@ img {
   color: #eef;
 }
 
-.nav router-link {
+.nav {
   text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
-  font-weight: 900;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 500px;
   color: #fff;
   transition: 200ms ease-in-out;
-  padding: 20px;
+  justify-content: space-evenly;
 }
 
-nav router-link:hover {
+.nav:hover {
   color: aqua;
 }
 
@@ -286,7 +316,7 @@ nav router-link:hover {
   row-gap: 2rem;
 }
 
-.m-nav router-link {
+.m-nav {
   text-decoration: none;
   width: 100%;
   font-weight: 700;

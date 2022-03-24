@@ -1,5 +1,5 @@
 <template>
-  <div class="contacts">
+  <div class="conatcts">
     <h1 class="section-header">Contact Me</h1>
     <div class="c-d">
       <div class="bg10">
@@ -36,7 +36,7 @@
           />
           <span class="fa fa fa-pencil subject"></span> <br />
           <textarea
-            rows="10"
+            rows="5"
             cols="40"
             id="boxing"
             class="cont"
@@ -52,26 +52,23 @@
       <div class="direct-contact-container">
         <ul class="contact-list">
           <li class="list-item">
-            <span class="contact-text place"
-                >Cape Town,South Africa</span
-              >
+            <span class="contact-text place">Cape Town,South Africa</span>
           </li>
 
           <li class="list-item">
-            
-              <span class="contact-text phone"
-                ><a href="tel:066-267-7072" title="Give me a call"
-                  >066 267 7072</a
-                ></span
-              >
+            <span class="contact-text phone"
+              ><a href="tel:066-267-7072" title="Give me a call"
+                >066 267 7072</a
+              ></span
+            >
           </li>
 
           <li class="list-item">
-           <span class="contact-text gmail"
-                ><a href="mailto:#yaaseendav@gmail.com" title="Send me an email"
-                  >yaaseendav@gmail.com</a
-                ></span
-              >
+            <span class="contact-text gmail"
+              ><a href="mailto:#yaaseendav@gmail.com" title="Send me an email"
+                >yaaseendav@gmail.com</a
+              ></span
+            >
           </li>
         </ul>
       </div>
@@ -112,7 +109,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .c-d {
   display: flex;
   flex-wrap: wrap;
@@ -129,13 +126,16 @@ export default {
   line-height: 4;
   color: #aaa;
 }
-
+.conatcts {
+  height: 100vh;
+  padding-top: 80px;
+}
 .contact-text {
   font: 300 18px "Lato", sans-serif;
   letter-spacing: 1.9px;
   color: #bbb;
 }
-.section-header{
+.section-header {
   text-align: center;
   padding-bottom: 20px;
 }
@@ -161,13 +161,7 @@ export default {
   color: #fff;
   text-decoration: none;
 }
-.contacts {
-  padding: 100px;
-  background-color: rgb(13, 13, 13);
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
+
 .cont {
   margin: 7px;
   padding: 10px;
